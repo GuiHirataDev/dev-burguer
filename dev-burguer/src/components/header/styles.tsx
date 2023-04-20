@@ -55,6 +55,7 @@ export const HeaderStyled = styled.header`
         border: none;
         border-radius: 10px;
         background-color: var(--color-primary);
+        cursor: pointer;
 
         color: var(--color-white-fixed);
     }
