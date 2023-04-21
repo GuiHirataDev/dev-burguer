@@ -33,6 +33,7 @@ export const CardStyled = styled.li`
 
     font-size: 20px;
     font-weight: 700;
+    color: var(--color-gray-100);
   }
 
   div .paragraph__cat {
