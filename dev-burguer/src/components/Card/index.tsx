@@ -4,7 +4,7 @@ import { ICardData } from "../../interfaces";
 export const Card = ({name, category, price, img}: ICardData) => {
     return (
         <CardStyled>
-            <img src={img} alt={`Imagem do produto ${name}`} />
+            <img src={`${img}`} alt={`Imagem ${name}`} />
             <div>
                 <h1>{name}</h1>
                 <p className="paragraph__cat">{category}</p>

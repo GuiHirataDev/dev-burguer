@@ -11,4 +11,13 @@ export const ListStyled = styled.section`
         overflow-x: scroll;
     }
 
+    @media (min-width: 650px) {
+        width: 65%;
+
+        ul {
+            overflow-x: hidden;
+            flex-wrap: wrap;
+        }
+    }
+
 `

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const CardStyled = styled.li`
   min-width: 300px;
   height: 346px;
-  margin-right: 15px;
+  margin: 0px 15px 15px 0px;
 
   border: 2px solid var(--color-gray-20);
   border-radius: 5px;

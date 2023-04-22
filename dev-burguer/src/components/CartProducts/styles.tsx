@@ -29,6 +29,10 @@ export const CartStyled = styled.section`
     flex-direction: column;
     align-items: center;
   }
+
+  @media (min-width: 650px) {
+    margin-top: 15px;
+  }
 `;
 
 export const CartItem = styled.li`

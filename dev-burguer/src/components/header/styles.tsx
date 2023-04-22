@@ -59,5 +59,21 @@ export const HeaderStyled = styled.header`
 
         color: var(--color-white-fixed);
     }
+
+    @media (min-width: 650px) {
+        height: 80px;
+        flex-direction: row;
+        justify-content: space-between;
+
+        h1 {
+            margin-left: 100px;
+        }
+
+        div {
+            width: 365px;
+            margin-right: 100px;
+        }
+        
+    }
 `
 
