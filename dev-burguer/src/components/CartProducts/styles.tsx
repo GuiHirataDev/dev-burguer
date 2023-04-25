@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const CartStyled = styled.section`
   width: 330px;
+  height: min-content;
   display: flex;
   flex-direction: column;
   margin: 0px auto 10px auto;
