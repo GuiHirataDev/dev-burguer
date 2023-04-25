@@ -3,15 +3,23 @@ import { CartItem, CartStyled, TotalValueDiv } from "./styles";
 import { useContext } from "react";
 
 export const CartProducts = () => {
-  const { currentSale, handleSale } = useContext(ProductContext);
+  const { currentSale, setCurrentSale, handleSale, cartTotal, setCartTotal } = useContext(ProductContext);
+
+  const values: number[] = []
+  currentSale.map((elem) => {
+    values.push(elem.price)
+  })
+  const initialValue = 0;
+  const total = values.reduce((acc, cur) => acc + cur, initialValue)
+  setCartTotal(total)
 
   return (
     <CartStyled>
       <h2>Carrinho de compras</h2>
       {currentSale.length !== 0 ? (
         <ul>
-          {currentSale.map((elem) => (
-            <CartItem key={elem.id}>
+          {currentSale.map((elem, index) => (
+            <CartItem key={index}>
               <div>
                 <img src={elem.img} alt={`Imagem de ${elem.name}`} />
                 <span>
@@ -29,9 +37,14 @@ export const CartProducts = () => {
       <TotalValueDiv>
         <span>
           <p className="total">Total</p>
-          <p className="value">{"R$ 40,00"}</p>
+          <p className="value">
+            {cartTotal.toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            })}
+          </p>
         </span>
-        <button>Remover todos</button>
+        <button onClick={() => setCurrentSale([])}>Remover todos</button>
       </TotalValueDiv>
     </CartStyled>
   );
