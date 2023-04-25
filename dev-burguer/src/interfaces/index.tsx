@@ -1,6 +1,7 @@
 import { Dispatch, ReactNode, SetStateAction } from "react";
 
 export interface ICardData {
+  id: number;
   name: string;
   category: string;
   price: number;
@@ -17,6 +18,7 @@ export interface IProductData {
   category: string;
   price: number;
   img: string;
+  includes?: any;
 }
 
 export interface IProductContext {
@@ -28,4 +30,7 @@ export interface IProductContext {
   setCurrentSale: Dispatch<SetStateAction<IProductData[]>>;
   cartTotal: number;
   setCartTotal: Dispatch<SetStateAction<number>>;
+  showProducts: any;
+  handleClick: any;
+  handleSale: any;
 }

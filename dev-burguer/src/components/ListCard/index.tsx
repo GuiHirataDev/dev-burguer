@@ -4,19 +4,31 @@ import { ListStyled } from "./styles";
 import { ProductContext } from "../../contexts/ProductContext";
 
 export const List = () => {
-  const { products } = useContext(ProductContext);
+  const { products, filteredProducts } = useContext(ProductContext);
   return (
     <ListStyled>
       <ul>
-        {products.map((elem) => (
-          <Card
-            name={elem.name}
-            category={elem.category}
-            img={elem.img}
-            price={elem.price}
-            key={elem.id}
-          />
-        ))}
+        {filteredProducts.length !== 0
+          ? filteredProducts.map((elem) => (
+              <Card
+                id={elem.id}
+                name={elem.name}
+                category={elem.category}
+                img={elem.img}
+                price={elem.price}
+                key={elem.id}
+              />
+            ))
+          : products.map((elem) => (
+              <Card
+                id={elem.id}
+                name={elem.name}
+                category={elem.category}
+                img={elem.img}
+                price={elem.price}
+                key={elem.id}
+              />
+            ))}
       </ul>
     </ListStyled>
   );

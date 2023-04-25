@@ -18,6 +18,8 @@ export const CardStyled = styled.li`
     :hover {
       transform: scale(1.1);
     }
+
+    
   }
 
   div {

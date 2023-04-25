@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import { IProductContext, IProductData, IProductProps } from "../../interfaces";
 import { api } from "../../components/services/api";
 
@@ -12,11 +12,26 @@ export const ProductProvider = ({ children }: IProductProps) => {
 
   const getAllProducts = async () => {
     await api
-        .get("")
-        .then((res) => setProducts(res.data))
-        .catch((err) => console.error(err))
+      .get("")
+      .then((res) => setProducts(res.data))
+      .catch((err) => console.error(err));
+  };
+  getAllProducts();
+
+  const showProducts = (product: string) => {
+    const filtProd = products.filter((word) => word.name.toLocaleLowerCase().includes(product));
+    setFilteredProducts(filtProd);
+  };
+
+  const handleClick = (id: number) => {
+    const findProd = products.find((prod) => prod.id === id)
+    setCurrentSale((currentSalePrev: any) => [...currentSalePrev, findProd])
   }
-  getAllProducts()
+
+  const handleSale = (prod: any) => {
+      const filteredSale = currentSale.filter((elem) => elem !== prod)
+      setCurrentSale(filteredSale)
+  }
 
   return (
     <ProductContext.Provider
@@ -29,6 +44,9 @@ export const ProductProvider = ({ children }: IProductProps) => {
         setCurrentSale,
         cartTotal,
         setCartTotal,
+        showProducts,
+        handleClick,
+        handleSale,
       }}
     >
       {children}

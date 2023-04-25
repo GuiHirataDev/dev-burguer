@@ -30,6 +30,13 @@ export const CartStyled = styled.section`
     align-items: center;
   }
 
+  .emptyCard {
+    padding: 30px;
+
+    font-weight: 600;
+    text-align: center;
+  }
+
   @media (min-width: 650px) {
     margin-top: 15px;
   }
